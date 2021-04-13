@@ -1,7 +1,7 @@
 // 引入工具类
 import request from '@/utils/request'
 /**
- * 定义接口路径
+ * 定义医院设置接口路径
  */
 export default {
     // 医院设置列表

@@ -36,7 +36,7 @@ export const constantRouterMap = [
       component: () => import('@/views/dashboard/index')
     }]
   },
-  // 医院设置
+  // 医院设置路由
   {
     path: '/hospSet',
     component: Layout,
@@ -66,7 +66,24 @@ export const constantRouterMap = [
       },
     ]
   },
-
+  // 数据字典路由
+  {
+    path: '/cmn',
+    component: Layout,
+    redirect: '/cmn/list',
+    name: '数据管理',
+    meta: { title: '数据管理', icon: 'example' },
+    // 如果只有一级会仅显示子按钮,添加alwaysShow=true 可以使父按钮也显示
+    alwaysShow:true,
+    children: [
+      {
+        path: 'list',
+        name: '数据字典',
+        component: () => import('@/views/dict/list'),
+        meta: { title: '数据字典', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
