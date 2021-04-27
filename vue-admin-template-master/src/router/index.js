@@ -64,6 +64,12 @@ export const constantRouterMap = [
         // 隐藏路由
         hidden: true
       },
+      {
+        path: 'hosp/list',
+        name: '医院列表',
+        component: () => import('@/views/hosp/list'),
+        meta: { title: '医院列表', icon: 'table' }
+      },
     ]
   },
   // 数据字典路由
@@ -74,7 +80,7 @@ export const constantRouterMap = [
     name: '数据管理',
     meta: { title: '数据管理', icon: 'example' },
     // 如果只有一级会仅显示子按钮,添加alwaysShow=true 可以使父按钮也显示
-    alwaysShow:true,
+    alwaysShow: true,
     children: [
       {
         path: 'list',
