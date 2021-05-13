@@ -66,9 +66,9 @@ export const constantRouterMap = [
       },
       {
         path: 'hosp/list',
-        name: '医院列表',
+        name: '医院列表显示',
         component: () => import('@/views/hosp/list'),
-        meta: { title: '医院列表', icon: 'table' }
+        meta: { title: '医院列表显示', icon: 'table' }
       },
       {
         path: 'hospital/show/:id',
@@ -92,121 +92,122 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/cmn/list',
     name: '数据管理',
-    meta: { title: '数据管理', icon: 'example' },
-    // 如果只有一级会仅显示子按钮,添加alwaysShow=true 可以使父按钮也显示
+    meta: { title: '数据管理', icon: 'nested' },
+    // 如果只有一级会仅显示子按钮,添加alwaysShow=true 可以使父按钮也显示example
     alwaysShow: true,
     children: [
       {
         path: 'list',
         name: '数据字典',
         component: () => import('@/views/dict/list'),
-        meta: { title: '数据字典', icon: 'table' }
-      }
-    ]
-  },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '数据字典', icon: 'form' }
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/example',
     component: Layout,
+    redirect: '/example/table',
+    name: '用户管理',
+    meta: { title: '用户管理', icon: 'table' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'table',
+        name: '用户列表',
+        component: () => import('@/views/table/index'),
+        meta: { title: '用户列表', icon: 'table' }
+      },
+      {
+        path: 'tree',
+        name: '认证审批列表',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '认证审批列表', icon: 'tree' }
       }
     ]
   },
+
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Form',
+  //       component: () => import('@/views/form/index'),
+  //       meta: { title: 'Form', icon: 'form' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
-    name: 'Nested',
+    name: '统计管理',
     meta: {
-      title: 'Nested',
-      icon: 'nested'
+      title: '统计管理',
+      icon: 'table'
     },
     children: [
       {
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
+        name: '预约统计',
         meta: { title: 'Menu1' },
         children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
+          // {
+          //   path: 'menu1-1',
+          //   component: () => import('@/views/nested/menu1/menu1-1'),
+          //   name: 'Menu1-1',
+          //   meta: { title: 'Menu1-1' }
+          // },
+          // {
+          //   path: 'menu1-2',
+          //   component: () => import('@/views/nested/menu1/menu1-2'),
+          //   name: 'Menu1-2',
+          //   meta: { title: 'Menu1-2' },
+          //   children: [
+          //     {
+          //       path: 'menu1-2-1',
+          //       component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+          //       name: 'Menu1-2-1',
+          //       meta: { title: 'Menu1-2-1' }
+          //     },
+          //     {
+          //       path: 'menu1-2-2',
+          //       component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+          //       name: 'Menu1-2-2',
+          //       meta: { title: 'Menu1-2-2' }
+          //     }
+          //   ]
+          // },
           {
             path: 'menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
+            name: '预约统计',
+            meta: { title: '预约统计' }
           }
         ]
       },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
-      }
+      // {
+      //   path: 'menu2',
+      //   component: () => import('@/views/nested/menu2/index'),
+      //   meta: { title: 'menu2' }
+      // }
     ]
   },
 
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+  //       meta: { title: 'External Link', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   { path: '*', redirect: '/404', hidden: true }
 ]

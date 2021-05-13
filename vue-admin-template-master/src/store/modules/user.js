@@ -50,7 +50,7 @@ const user = {
     GetInfo({ commit, state }) {
 
       // 硬编码
-      const data = { 'roles': 'admin', 'name': 'admin', 'avatar': 'https://wpimg.wallstcn.com/57ed425a-c71e-4201-9428-68760c0537c4.jpg' }
+      const data = { 'roles': 'admin', 'name': 'admin', 'avatar': 'https://hudie-crowd.oss-cn-beijing.aliyuncs.com/%E5%B0%8F%E8%93%9D%E5%A4%B4.jpg' }
       if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
         commit('SET_ROLES', data.roles)
       } else {

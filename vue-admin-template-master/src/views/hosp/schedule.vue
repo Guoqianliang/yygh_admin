@@ -45,9 +45,8 @@
           </el-pagination>
         </el-row>
         <el-row style="margin-top: 20px">
-          <!-- 排班日期对应的排班医生 -->
+          <!-- 排班日期对应的排班医生 v-loading="listLoading"-->
           <el-table
-            v-loading="listLoading"
             :data="scheduleList"
             border
             fit

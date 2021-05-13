@@ -17,11 +17,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-select
-          v-model="searchObj.cityCode"
-          placeholder="请选择市"
-          @change="cityChanged"
-        >
+        <el-select v-model="searchObj.cityCode" placeholder="请选择市">
           <el-option
             v-for="item in cityList"
             :key="item.id"
@@ -166,6 +162,12 @@ export default {
         this.provinceList = response.data;
       });
     },
+    // 重置查询表单
+        resetData() {
+            console.log('重置查询表单')
+            this.searchObj = {}
+            this.fetchData()
+        },
     // 点击某个省,显示市内容(省市联动)
     provinceChanged() {
       // 初始化
@@ -175,6 +177,15 @@ export default {
         this.cityList = response.data;
       });
     },
+    //    @change="cityChanged"
+    // cityChanged() {
+    //   // 初始化
+    //   this.cityList = [];
+    //   this.searchObj.cityCode = null;
+    //   hospApi.findChildId(this.searchObj.cityCode).then((response) => {
+    //     this.cityList = response.data;
+    //   });
+    // },
     // 分页,页码切换
     changeSize() {
       this.limit = size;

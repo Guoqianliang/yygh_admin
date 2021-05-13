@@ -26,7 +26,7 @@
     >
       <el-table-column type="selection" width="55" />
       <el-table-column type="index" label="序号" width="50" />
-      <el-table-column prop="hosname" label="医院名称" />
+      <el-table-column prop="hosname" label="医院名称" width="180"/>
       <el-table-column prop="hoscode" label="医院编号" />
       <el-table-column prop="apiUrl" label="api基础路径" width="200" />
       <el-table-column prop="contactsName" label="联系人姓名" />

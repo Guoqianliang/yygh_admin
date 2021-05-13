@@ -9,11 +9,12 @@
         <tr>
           <th width="15%">医院名称</th>
           <td width="35%">
-            <b style="font-size: 14px">{{ hospital.hosname }}</b> |
-            {{ hospital.param.hostypeString }}
+            <b style="font-size: 14px" v-if="hospital">{{ hospital.hosname }}</b> |
+            <span v-if="hospital">{{ hospital.param.hostypeString }} </span>
+            
           </td>
           <th width="15%">医院logo</th>
-          <td width="35%">
+          <td width="35%" v-if="hospital">
             <img
               :src="'data:image/jpeg;base64,' + hospital.logoData"
               width="80"
@@ -22,17 +23,17 @@
         </tr>
         <tr>
           <th>医院编码</th>
-          <td>{{ hospital.hoscode }}</td>
+          <td v-if="hospital">{{ hospital.hoscode }}</td>
           <th>地址</th>
-          <td>{{ hospital.param.fullAddress }}</td>
+          <td v-if="hospital">{{ hospital.param.fullAddress }}</td>
         </tr>
         <tr>
           <th>坐车路线</th>
-          <td colspan="3">{{ hospital.route }}</td>
+          <td colspan="3" v-if="hospital">{{ hospital.route }}</td>
         </tr>
         <tr>
           <th>医院简介</th>
-          <td colspan="3">{{ hospital.intro }}</td>
+          <td colspan="3" v-if="hospital">{{ hospital.intro }}</td>
         </tr>
       </tbody>
     </table>
@@ -45,15 +46,15 @@
       <tbody>
         <tr>
           <th width="15%">预约周期</th>
-          <td width="35%">{{ bookingRule.cycle }}天</td>
+          <td width="35%" v-if="bookingRule">{{ bookingRule.cycle }}天</td>
           <th width="15%">放号时间</th>
-          <td width="35%">{{ bookingRule.releaseTime }}</td>
+          <td width="35%" v-if="bookingRule">{{ bookingRule.releaseTime }}</td>
         </tr>
         <tr>
           <th>停挂时间</th>
-          <td>{{ bookingRule.stopTime }}</td>
+          <td v-if="bookingRule">{{ bookingRule.stopTime }}</td>
           <th>退号时间</th>
-          <td>
+          <td v-if="bookingRule">
             {{ bookingRule.quitDay == -1 ? "就诊前一工作日" : "就诊当日"
             }}{{ bookingRule.quitTime }} 前取消
           </td>
@@ -61,7 +62,7 @@
         <tr>
           <th>预约规则</th>
           <td colspan="3">
-            <ol>
+            <ol v-if="bookingRule">
               <li v-for="item in bookingRule.rule" :key="item">{{ item }}</li>
             </ol>
           </td>
